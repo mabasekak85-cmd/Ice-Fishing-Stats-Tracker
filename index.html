@@ -1,102 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bedsted Dev |Ice Fishing Stats Tracker</title>
-<meta name="description" content="Official developer page forIce Fishing Stats Tracker by Bedsted Dev">
-<style>
-:root{
-    --primary:#0f2027;
-    --secondary:#203a43;
-    --accent:#2c5364;
-    --ice:#e6f7ff;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family: 'Segoe UI', sans-serif;}
-body{
-    background: linear-gradient(135deg,var(--primary),var(--secondary),var(--accent));
-    color:white;
-    line-height:1.6;
-}
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
-header{
-    text-align:center;
-    padding:40px 20px;
-}
-header h1{
-    font-size:2.2rem;
-    margin-bottom:10px;
-}
-.glass{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(12px);
-    border-radius:16px;
-    padding:25px;
-    margin:20px 0;
-    box-shadow:0 8px 30px rgba(0,0,0,0.3);
-}
-a{
-    color:var(--ice);
-    text-decoration:none;
-    font-weight:600;
-}
-a:hover{opacity:0.8;}
-footer{
-    text-align:center;
-    padding:20px;
-    font-size:0.9rem;
-    opacity:0.8;
-}
-@media(max-width:600px){
-    header h1{font-size:1.6rem;}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official developer and app information for Ice Fishing Stats Tracker by Bedsted Dev." />
+  <title>Ice Fishing Stats Tracker | Bedsted Dev</title>
+  <style>
+    :root {
+      --ice: #e8fbff;
+      --deep: #071b33;
+      --lake: #0b5b78;
+      --aqua: #39d4e8;
+      --frost: rgba(255,255,255,.78);
+      --line: rgba(255,255,255,.22);
+      --text: #eaf9ff;
+      --muted: #b8d7e4;
+      --card: rgba(8, 34, 58, .68);
+      --glow: 0 0 36px rgba(57, 212, 232, .32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(57,212,232,.35), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.16), transparent 22%),
+        linear-gradient(145deg, #041124 0%, #082a46 48%, #04101f 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(30deg, transparent 48%, rgba(255,255,255,.65) 49%, transparent 51%),
+        linear-gradient(150deg, transparent 48%, rgba(255,255,255,.55) 49%, transparent 51%);
+      background-size: 90px 90px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
+    .shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(4,17,36,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 14px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(57,212,232,.95), rgba(255,255,255,.7));
+      color: #062033;
+      box-shadow: var(--glow);
+    }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .links a {
+      color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 650;
+      padding: 10px 12px; border-radius: 999px; border: 1px solid transparent;
+      transition: .22s ease;
+    }
+    .links a:hover, .links a.active { color: white; border-color: var(--line); background: rgba(255,255,255,.08); }
+
+    .hero { padding: 74px 0 36px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 34px; align-items: center; }
+    .badge {
+      width: fit-content; display: flex; align-items: center; gap: 8px;
+      color: var(--ice); background: rgba(255,255,255,.08); border: 1px solid var(--line);
+      border-radius: 999px; padding: 9px 13px; font-size: 14px; font-weight: 700;
+    }
+    h1 { font-size: clamp(42px, 7vw, 78px); line-height: .94; margin: 20px 0; letter-spacing: -.07em; }
+    .lead { font-size: clamp(17px, 2.4vw, 22px); line-height: 1.6; color: var(--muted); max-width: 680px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .button {
+      border: 1px solid var(--line); border-radius: 18px; padding: 13px 18px;
+      color: white; text-decoration: none; font-weight: 800;
+      background: rgba(255,255,255,.09); transition: transform .2s ease, background .2s ease;
+    }
+    .button.primary { color: #041124; background: linear-gradient(135deg, #65efff, #ffffff); box-shadow: var(--glow); }
+    .button:hover { transform: translateY(-3px); background: rgba(255,255,255,.15); }
+
+    .phone-card {
+      position: relative; min-height: 510px; border-radius: 40px; padding: 18px;
+      border: 1px solid rgba(255,255,255,.28);
+      background: linear-gradient(160deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+    .phone-card::after {
+      content: ""; position: absolute; width: 260px; height: 260px; right: -80px; bottom: -70px;
+      background: radial-gradient(circle, rgba(57,212,232,.42), transparent 66%);
+    }
+    .screen {
+      position: relative; z-index: 2; height: 100%; min-height: 474px; border-radius: 30px; padding: 24px;
+      background: rgba(2, 17, 33, .72); border: 1px solid var(--line);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .metric { display: flex; justify-content: space-between; gap: 12px; padding: 16px; margin: 12px 0; border-radius: 20px; background: rgba(255,255,255,.08); border: 1px solid var(--line); }
+    .metric strong { font-size: 30px; }
+    .ice-hole {
+      width: 190px; height: 190px; margin: 16px auto;
+      border-radius: 50%; background: radial-gradient(circle, #001321 0 34%, #52e2f4 35% 41%, rgba(255,255,255,.62) 42% 45%, rgba(255,255,255,.12) 46% 100%);
+      box-shadow: inset 0 -22px 40px rgba(0,0,0,.45), 0 0 42px rgba(57,212,232,.25);
+      animation: breathe 3.2s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+
+    .section { padding: 42px 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      padding: 24px; border-radius: 28px; background: var(--card); border: 1px solid var(--line);
+      box-shadow: 0 18px 48px rgba(0,0,0,.22); backdrop-filter: blur(12px);
+    }
+    .card h2, .card h3 { margin-top: 0; letter-spacing: -.03em; }
+    .card p { color: var(--muted); line-height: 1.65; }
+    .mono { color: white; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    footer { padding: 34px 0 46px; color: var(--muted); text-align: center; }
+
+    @media (max-width: 850px) {
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .links { justify-content: flex-start; }
+      .hero { padding-top: 42px; }
+      .hero-grid, .cards { grid-template-columns: 1fr; }
+      .phone-card { min-height: auto; }
+    }
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 22px, 1120px); }
+      .links a { padding: 9px 10px; font-size: 13px; }
+      .cta-row { flex-direction: column; }
+      .button { text-align: center; }
+      .screen { padding: 18px; }
+      .ice-hole { width: 150px; height: 150px; }
+    }
+  </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="logo">❄</span>
+        <span>Bedsted Dev</span>
+      </a>
+      <div class="links" aria-label="Main navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
+        <a href="marketing.html">Marketing</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <main>
+    <section class="hero shell">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">🧊 Official app information page</div>
+          <h1>Ice Fishing Stats Tracker</h1>
+          <p class="lead">A simple and transparent app project by Bedsted Dev, created to help ice fishing enthusiasts keep their catches, sessions, and fishing notes organized in one clear place.</p>
+          <div class="cta-row">
+            <a class="button primary" href="privacy-policy.html">Read Privacy Policy</a>
+            <a class="button" href="support.html">Contact Support</a>
+            <a class="button" href="marketing.html">About the Project</a>
+          </div>
+        </div>
+        <div class="phone-card" aria-label="Decorative app preview">
+          <div class="screen">
+            <div>
+              <div class="badge">Live concept preview</div>
+              <div class="ice-hole" aria-hidden="true"></div>
+              <div class="metric"><span>Tracked sessions</span><strong>12</strong></div>
+              <div class="metric"><span>Best catch</span><strong>4.8 kg</strong></div>
+              <div class="metric"><span>Notes saved</span><strong>36</strong></div>
+            </div>
+            <p style="color: var(--muted); line-height: 1.6; margin: 0;">Designed with privacy-first principles and a clear developer identity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<header>
-<h1>Bedsted Dev</h1>
-<p>Independent Android Developer</p>
-</header>
+    <section class="section shell">
+      <div class="cards">
+        <article class="card">
+          <h2>Developer</h2>
+          <p><strong>Developer name:</strong><br><span class="mono">Bedsted Dev</span></p>
+          <p><strong>Developer account email:</strong><br><span class="mono">mabasekak85@gmail.com</span></p>
+        </article>
+        <article class="card">
+          <h2>Application</h2>
+          <p><strong>App name:</strong><br><span class="mono">Ice Fishing Stats Tracker</span></p>
+          <p>The app is focused on practical tracking for ice fishing activity and personal fishing statistics.</p>
+        </article>
+        <article class="card">
+          <h2>Transparency</h2>
+          <p>This website is provided so Google Play reviewers and users can clearly understand who develops the app, how support works, and how privacy is handled.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-<div class="glass">
-<h2>About the Developer</h2>
-<p>
-Bedsted Dev is an independent beginner developer focused on creating simple, useful, and transparent applications.
-The goal is to build practical tools that bring real value to users while maintaining full transparency and trust.
-</p>
-<p><strong>Developer Account Email:</strong> mabasekak85@gmail.com</p>
-</div>
+  <footer class="shell">© 2026 Bedsted Dev. Ice Fishing Stats Tracker.</footer>
 
-<div class="glass">
-<h2>About the App:Ice Fishing Stats Tracker</h2>
-<p>
-Winter Angler Stats is designed for winter fishing enthusiasts who want to track and organize their fishing statistics.
-The app focuses on simplicity, performance, and ease of use.
-</p>
-<p>
-No hidden features, no unnecessary permissions — just a focused tool built with care.
-</p>
-</div>
-
-<div class="glass">
-<h2>Quick Links</h2>
-<p><a href="privacy-policy.html">Privacy Policy</a></p>
-<p><a href="support.html">Support</a></p>
-<p><a href="marketing.html">Marketing Information</a></p>
-</div>
-
-<footer>
-© 2025 Bedsted Dev. All rights reserved.
-</footer>
-
-</div>
-
+  <script>
+    document.addEventListener('pointermove', (event) => {
+      const x = event.clientX / window.innerWidth * 100;
+      const y = event.clientY / window.innerHeight * 100;
+      document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(57,212,232,.38), transparent 25%), radial-gradient(circle at 85% 20%, rgba(255,255,255,.16), transparent 22%), linear-gradient(145deg, #041124 0%, #082a46 48%, #04101f 100%)`;
+    });
+  </script>
 </body>
 </html>
