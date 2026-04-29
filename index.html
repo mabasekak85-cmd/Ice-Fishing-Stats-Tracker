@@ -142,6 +142,29 @@
       .screen { padding: 18px; }
       .ice-hole { width: 150px; height: 150px; }
     }
+
+    /* Mobile navigation: compact glass dock */
+    @media (max-width: 760px) {
+      body { padding-bottom: 92px; }
+      .nav { z-index: 50; }
+      .nav-inner { flex-direction: row !important; align-items: center !important; justify-content: center !important; padding: 10px 0 12px !important; }
+      .brand { width: 100%; justify-content: center; font-size: 18px; }
+      .logo { width: 44px; height: 44px; border-radius: 16px; }
+      .links { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 100; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px; border-radius: 26px; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg, rgba(3,15,30,.88), rgba(8,45,70,.82)); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); box-shadow: 0 18px 48px rgba(0,0,0,.38), 0 0 28px rgba(94,238,255,.16); }
+      .links a { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 9px 4px; border-radius: 19px; font-size: 10.5px; line-height: 1.05; text-align: center; white-space: nowrap; color: rgba(234,249,255,.78); }
+      .links a::before { display: block; font-size: 18px; line-height: 1; filter: drop-shadow(0 0 8px rgba(94,238,255,.28)); }
+      .links a:nth-child(1)::before { content: "⌂"; }
+      .links a:nth-child(2)::before { content: "◇"; }
+      .links a:nth-child(3)::before { content: "✉"; }
+      .links a:nth-child(4)::before { content: "✦"; }
+      .links a.active { color: #04101f !important; border-color: rgba(255,255,255,.55) !important; background: linear-gradient(135deg, #65efff, #ffffff) !important; box-shadow: 0 0 24px rgba(94,238,255,.28); }
+      .links a.active::before { filter: none; }
+    }
+    @media (max-width: 380px) { .links { left: 7px; right: 7px; bottom: 7px; padding: 6px; gap: 4px; } .links a { font-size: 9.5px; padding: 8px 2px; } .links a::before { font-size: 16px; } }
+
+    /* Home page: clean official landing page without app concept mockup */
+    .hero-grid { grid-template-columns: 1fr; max-width: 900px; }
+    .hero { padding-bottom: 20px; }
   </style>
 </head>
 <body>
@@ -171,18 +194,6 @@
             <a class="button primary" href="privacy-policy.html">Read Privacy Policy</a>
             <a class="button" href="support.html">Contact Support</a>
             <a class="button" href="marketing.html">About the Project</a>
-          </div>
-        </div>
-        <div class="phone-card" aria-label="Decorative app preview">
-          <div class="screen">
-            <div>
-              <div class="badge">Live concept preview</div>
-              <div class="ice-hole" aria-hidden="true"></div>
-              <div class="metric"><span>Tracked sessions</span><strong>12</strong></div>
-              <div class="metric"><span>Best catch</span><strong>4.8 kg</strong></div>
-              <div class="metric"><span>Notes saved</span><strong>36</strong></div>
-            </div>
-            <p style="color: var(--muted); line-height: 1.6; margin: 0;">Designed with privacy-first principles and a clear developer identity.</p>
           </div>
         </div>
       </div>
