@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -35,24 +36,26 @@
     ul { padding-left: 22px; }
     @media (max-width:760px){ .nav-inner{align-items:flex-start; flex-direction:column;} .links{justify-content:flex-start;} .grid{grid-template-columns:1fr;} }
 
-    /* Mobile navigation: compact glass dock */
-    @media (max-width: 760px) {
-      body { padding-bottom: 92px; }
-      .nav { z-index: 50; }
-      .nav-inner { flex-direction: row !important; align-items: center !important; justify-content: center !important; padding: 10px 0 12px !important; }
-      .brand { width: 100%; justify-content: center; font-size: 18px; }
-      .logo { width: 44px; height: 44px; border-radius: 16px; }
-      .links { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 100; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px; border-radius: 26px; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg, rgba(3,15,30,.88), rgba(8,45,70,.82)); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); box-shadow: 0 18px 48px rgba(0,0,0,.38), 0 0 28px rgba(94,238,255,.16); }
-      .links a { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 9px 4px; border-radius: 19px; font-size: 10.5px; line-height: 1.05; text-align: center; white-space: nowrap; color: rgba(234,249,255,.78); }
-      .links a::before { display: block; font-size: 18px; line-height: 1; filter: drop-shadow(0 0 8px rgba(94,238,255,.28)); }
-      .links a:nth-child(1)::before { content: "⌂"; }
-      .links a:nth-child(2)::before { content: "◇"; }
-      .links a:nth-child(3)::before { content: "✉"; }
-      .links a:nth-child(4)::before { content: "✦"; }
-      .links a.active { color: #04101f !important; border-color: rgba(255,255,255,.55) !important; background: linear-gradient(135deg, #65efff, #ffffff) !important; box-shadow: 0 0 24px rgba(94,238,255,.28); }
-      .links a.active::before { filter: none; }
-    }
-    @media (max-width: 380px) { .links { left: 7px; right: 7px; bottom: 7px; padding: 6px; gap: 4px; } .links a { font-size: 9.5px; padding: 8px 2px; } .links a::before { font-size: 16px; } }
+/* Mobile navigation: compact glass dock */
+@media (max-width: 760px) {
+  body { padding-bottom: 92px; }
+  .nav { z-index: 50; }
+  .nav-inner { flex-direction: row !important; align-items: center !important; justify-content: center !important; padding: 10px 0 12px !important; }
+  .brand { width: 100%; justify-content: center; font-size: 18px; }
+  .logo { width: 44px; height: 44px; border-radius: 16px; }
+  .links { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 100; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px; border-radius: 26px; border: 1px solid rgba(255,255,255,.22); background: linear-gradient(135deg, rgba(3,15,30,.88), rgba(8,45,70,.82)); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); box-shadow: 0 18px 48px rgba(0,0,0,.38), 0 0 28px rgba(94,238,255,.16); }
+  .links a { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 9px 4px; border-radius: 19px; font-size: 10.5px; line-height: 1.05; text-align: center; white-space: nowrap; color: rgba(234,249,255,.78); }
+  .links a::before { display: block; font-size: 18px; line-height: 1; filter: drop-shadow(0 0 8px rgba(94,238,255,.28)); }
+  .links a:nth-child(1)::before { content: "⌂"; }
+  .links a:nth-child(2)::before { content: "◇"; }
+  .links a:nth-child(3)::before { content: "✉"; }
+  .links a:nth-child(4)::before { content: "✦"; }
+  .links a.active { color: #04101f !important; border-color: rgba(255,255,255,.55) !important; background: linear-gradient(135deg, #65efff, #ffffff) !important; box-shadow: 0 0 24px rgba(94,238,255,.28); }
+  .links a.active::before { filter: none; }
+}
+@media (max-width: 380px) { .links { left: 7px; right: 7px; bottom: 7px; padding: 6px; gap: 4px; } .links a { font-size: 9.5px; padding: 8px 2px; } .links a::before { font-size: 16px; } }
+
+
   </style>
 </head>
 <body>
@@ -72,114 +75,117 @@
         <h1>Privacy Policy</h1>
         <p><strong>App:</strong> Ice Fishing Stats Tracker<br><strong>Developer:</strong> Bedsted Dev<br><strong>Contact:</strong> mabasekak85@gmail.com</p>
 
-        <div class="notice">
-          <p>
-            <strong>Simple summary:</strong> Ice Fishing Stats Tracker may use Firebase Analytics and AppsFlyer.
-            These services may collect and process limited usage data, app activity, device identifiers, advertising identifiers,
-            approximate location, and related technical information for analytics, attribution, app improvement, marketing measurement,
-            fraud prevention, security, and compliance.
-          </p>
-        </div>
 
-        <div class="grid" aria-label="Privacy highlights">
-          <div class="tile"><span>📊</span><strong>Usage data</strong><p>App activity, sessions, screen views, feature interactions, and in-app events may be collected.</p></div>
-          <div class="tile"><span>🧊</span><strong>Device identifiers</strong><p>Advertising identifiers, app instance identifiers, device identifiers, or similar technical identifiers may be processed.</p></div>
-          <div class="tile"><span>🔐</span><strong>Encrypted in transit</strong><p>Data is transmitted using secure protocols such as HTTPS/TLS.</p></div>
-        </div>
+    <div class="notice">
+      <p>
+        <strong>Simple summary:</strong> Ice Fishing Stats Tracker may use Firebase Analytics and Tenjin.
+        These services may collect and process limited usage data, app activity, device identifiers, advertising identifiers,
+        approximate location, and related technical information for analytics, attribution, app improvement, marketing measurement,
+        fraud prevention, security, and compliance.
+      </p>
+    </div>
 
-        <h2>1. Information We Collect</h2>
-        <p>
-          Ice Fishing Stats Tracker may collect limited non-personal and technical data through third-party analytics
-          and attribution services, including Firebase Analytics and AppsFlyer.
-        </p>
-        <p>The types of data that may be collected include:</p>
-        <ul>
-          <li><strong>App activity and usage data:</strong> app launches, screen views, sessions, session duration, interactions with app features, and in-app events.</li>
-          <li><strong>Device or other identifiers:</strong> advertising identifiers, app instance identifiers, device identifiers, or similar technical identifiers.</li>
-          <li><strong>Approximate location:</strong> approximate location may be derived from technical information such as IP address for analytics, attribution, fraud prevention, regional reporting, and marketing measurement.</li>
-          <li><strong>Technical data:</strong> device type, operating system version, app version, language, country or region, and diagnostic information.</li>
-        </ul>
+    <div class="grid" aria-label="Privacy highlights">
+      <div class="tile"><span>📊</span><strong>Usage data</strong><p>App activity, sessions, screen views, feature interactions, and in-app events may be collected.</p></div>
+      <div class="tile"><span>🧊</span><strong>Device identifiers</strong><p>Advertising identifiers, app instance identifiers, device identifiers, or similar technical identifiers may be processed.</p></div>
+      <div class="tile"><span>🔐</span><strong>Encrypted in transit</strong><p>Data is transmitted using secure protocols such as HTTPS/TLS.</p></div>
+    </div>
 
-        <h2>2. Information We Do Not Intentionally Collect</h2>
-        <p>
-          We do not intentionally collect directly identifying personal information such as your name, email address,
-          phone number, payment information, or contact information through the app.
-        </p>
+    <h2>1. Information We Collect</h2>
+    <p>
+      Ice Fishing Stats Tracker may collect limited non-personal and technical data through third-party analytics
+      and attribution services, including Firebase Analytics and Tenjin.
+    </p>
+    <p>The types of data that may be collected include:</p>
+    <ul>
+      <li><strong>App activity and usage data:</strong> app launches, screen views, sessions, session duration, interactions with app features, and in-app events.</li>
+      <li><strong>Device or other identifiers:</strong> advertising identifiers, app instance identifiers, device identifiers, or similar technical identifiers.</li>
+      <li><strong>Approximate location:</strong> approximate location may be derived from technical information such as IP address for analytics, attribution, fraud prevention, regional reporting, and marketing measurement.</li>
+      <li><strong>Technical data:</strong> device type, operating system version, app version, language, country or region, and diagnostic information.</li>
+    </ul>
 
-        <h2>3. How We Use Information</h2>
-        <p>Collected data may be used for:</p>
-        <ul>
-          <li>Analytics and measurement of app usage;</li>
-          <li>Understanding how users interact with the app;</li>
-          <li>Improving app performance, stability, and user experience;</li>
-          <li>Attribution and measurement of advertising or marketing campaigns;</li>
-          <li>Fraud prevention, security, and compliance.</li>
-        </ul>
+    <h2>2. Information We Do Not Intentionally Collect</h2>
+    <p>
+      We do not intentionally collect directly identifying personal information such as your name, email address,
+      phone number, payment information, or contact information through the app.
+    </p>
 
-        <h2>4. Data Storage</h2>
-        <p>
-          We do not store user data on our own developer-controlled servers. However, data collected through Firebase Analytics
-          and AppsFlyer may be stored and processed by those third-party service providers according to their own policies,
-          retention rules, and applicable legal requirements.
-        </p>
-        <p>
-          Any fishing notes, catch records, or session information that a user may enter into the app is intended to remain
-          under the user’s control on the user’s device, unless the app interface or operating system clearly states otherwise.
-        </p>
+    <h2>3. How We Use Information</h2>
+    <p>Collected data may be used for:</p>
+    <ul>
+      <li>Analytics and measurement of app usage;</li>
+      <li>Understanding how users interact with the app;</li>
+      <li>Improving app performance, stability, and user experience;</li>
+      <li>Attribution and measurement of advertising or marketing campaigns;</li>
+      <li>Fraud prevention, security, and compliance.</li>
+    </ul>
 
-        <h2>5. Third-Party Services and Data Sharing</h2>
-        <p>
-          The app may use third-party services including Firebase Analytics by Google and AppsFlyer. These services may collect,
-          receive, process, and store usage data, app activity data, device identifiers, approximate location, and technical data
-          according to their own privacy policies and terms.
-        </p>
-        <p>
-          Data may be shared with or processed by third-party analytics, attribution, advertising, marketing measurement,
-          and fraud prevention providers, including Firebase Analytics and AppsFlyer.
-        </p>
-        <p>
-          We do not sell personal information. However, certain data may be processed by third-party service providers
-          as described in this Privacy Policy.
-        </p>
+    <h2>4. Data Storage</h2>
+    <p>
+      We do not store user data on our own developer-controlled servers. However, data collected through Firebase Analytics
+      and Tenjin may be stored and processed by those third-party service providers according to their own policies,
+      retention rules, and applicable legal requirements.
+    </p>
+    <p>
+      Any fishing notes, catch records, or session information that a user may enter into the app is intended to remain
+      under the user’s control on the user’s device, unless the app interface or operating system clearly states otherwise.
+    </p>
 
-        <h2>6. Data Security</h2>
-        <p>
-          Data transmitted from the app to third-party services is encrypted in transit using secure protocols such as HTTPS/TLS.
-          Although reasonable security measures are used, no method of transmission or electronic storage is completely secure.
-        </p>
+    <h2>5. Third-Party Services and Data Sharing</h2>
+    <p>
+      The app may use third-party services including Firebase Analytics by Google and Tenjin. These services may collect,
+      receive, process, and store usage data, app activity data, device identifiers, approximate location, and technical data
+      according to their own privacy policies and terms.
+    </p>
+    <p>
+      Data may be shared with or processed by third-party analytics, attribution, advertising, marketing measurement,
+      and fraud prevention providers, including Firebase Analytics and Tenjin.
+    </p>
+    <p>
+      We do not sell personal information. However, certain data may be processed by third-party service providers
+      as described in this Privacy Policy.
+    </p>
 
-        <h2>7. User Data Deletion</h2>
-        <p>
-          At this time, Ice Fishing Stats Tracker does not provide a direct in-app mechanism or separate request process
-          for users to request deletion of analytics, attribution, or device identifier data.
-        </p>
-        <p>
-          Accordingly, in the Google Play Data Safety section, the answer to whether users can request data deletion is:
-          <strong>No</strong>.
-        </p>
+    <h2>6. Data Security</h2>
+    <p>
+      Data transmitted from the app to third-party services is encrypted in transit using secure protocols such as HTTPS/TLS.
+      Although reasonable security measures are used, no method of transmission or electronic storage is completely secure.
+    </p>
 
-        <h2>8. Children’s Privacy</h2>
-        <p>
-          Ice Fishing Stats Tracker is not intended to knowingly collect directly identifying personal information from children.
-          The app may collect limited usage data, app activity data, device identifiers, approximate location, and technical data
-          through third-party analytics and attribution services as described above.
-        </p>
-        <p>
-          If you believe that a child has provided personal information through the app, please contact us.
-        </p>
+    <h2>7. User Data Deletion</h2>
+    <p>
+      At this time, Ice Fishing Stats Tracker does not provide a direct in-app mechanism or separate request process
+      for users to request deletion of analytics, attribution, or device identifier data.
+    </p>
+    <p>
+      Accordingly, in the Google Play Data Safety section, the answer to whether users can request data deletion is:
+      <strong>No</strong>.
+    </p>
 
-        <h2>9. Future Changes</h2>
-        <p>
-          If future versions of the app introduce additional features that affect data collection, paid functionality,
-          subscriptions, cloud sync, analytics, or third-party services, this Privacy Policy will be updated clearly.
-        </p>
+    <h2>8. Children’s Privacy</h2>
+    <p>
+      Ice Fishing Stats Tracker is not intended to knowingly collect directly identifying personal information from children.
+      The app may collect limited usage data, app activity data, device identifiers, approximate location, and technical data
+      through third-party analytics and attribution services as described above.
+    </p>
+    <p>
+      If you believe that a child has provided personal information through the app, please contact us.
+    </p>
 
-        <h2>10. Contact</h2>
-        <p>For privacy questions, please contact Bedsted Dev at <a href="mailto:mabasekak85@gmail.com">mabasekak85@gmail.com</a>.</p>
+    <h2>9. Future Changes</h2>
+    <p>
+      If future versions of the app introduce additional features that affect data collection, paid functionality,
+      subscriptions, cloud sync, analytics, or third-party services, this Privacy Policy will be updated clearly.
+    </p>
 
-        <p><strong>Effective date:</strong> April 29, 2026</p>
-      </div>
-    </article>
+    <h2>10. Contact</h2>
+    <p>For privacy questions, please contact Bedsted Dev at <a href="mailto:mabasekak85@gmail.com">mabasekak85@gmail.com</a>.</p>
+
+    <p><strong>Effective date:</strong> April 29, 2026</p>
+  </div>
+</article>
+
+
   </main>
 
   <footer class="footer shell">© 2026 Bedsted Dev. Ice Fishing Stats Tracker.</footer>
